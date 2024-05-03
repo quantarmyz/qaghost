@@ -43,7 +43,7 @@ if [ "$1" == "setup" ]; then
   && echo "0 23 * * * certbot certonly -n --webroot -w /usr/share/nginx/html -d $2 --deploy-hook='docker exec ghost_nginx_1 nginx -s reload'" >> mycron \
   && crontab mycron; rm mycron \
   && echo 'Starting Docker...' \
-  && docker-compose up -d \
+  && docker compose up -d \
   && echo 'Done! 🎉' \
   && echo 'by Rafael Correa Gomes' \
   && echo 'Access your host: https://'; echo $2;
